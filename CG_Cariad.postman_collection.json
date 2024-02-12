@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "017d4005-d1b9-4025-a742-320b6782c6ec",
+		"name": "Cariad",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5174022"
+	},
+	"item": [
+		{
+			"name": "Create_Vin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let VIN=pm.collectionVariables.get(\"VIN\");\r",
+							"if (!VIN || VIN.length ==0)\r",
+							"{\r",
+							" VIN=[\"Capgeminitest0029\", \"Capgeminitest0030\", \"Capgeminitest0031\"];\r",
+							"}\r",
+							"var GcurrentVIN = VIN.shift();\r",
+							"console.log(GcurrentVIN);\r",
+							"pm.collectionVariables.set(\"CrVIN\", GcurrentVIN);\r",
+							"pm.collectionVariables.set(\"VIN\", VIN);\r",
+							"console.log(VIN);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const VIN=pm.collectionVariables.get(\"VIN\");\r",
+							"if (VIN && VIN.length > 0)\r",
+							"{\r",
+							"    postman.setNextRequest(\"https://playgroundvwtestapp.azurewebsites.net/vehicle\");\r",
+							"}\r",
+							"else\r",
+							"{\r",
+							"    postman.setNextRequest(null);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n  \"vin\": \"{{CrVIN}}\",\r\n  \"name\": \"CapGVIN\",\r\n  \"status\": \"Available\"\r\n }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://playgroundvwtestapp.azurewebsites.net/vehicle",
+					"protocol": "https",
+					"host": [
+						"playgroundvwtestapp",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"vehicle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_Vin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let UVIN=pm.collectionVariables.get(\"UVIN\");\r",
+							"if (!UVIN || UVIN.length ==0)\r",
+							"{\r",
+							" UVIN=[\"Capgeminitest0029\", \"Capgeminitest0030\", \"Capgeminitest0031\"];\r",
+							"}\r",
+							"var GUcurrentVIN = UVIN.shift();\r",
+							"console.log(GUcurrentVIN);\r",
+							"pm.collectionVariables.set(\"CUVIN\", GUcurrentVIN);\r",
+							"pm.collectionVariables.set(\"UVIN\", UVIN);\r",
+							"console.log(UVIN);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const UVIN=pm.collectionVariables.get(\"UVIN\");\r",
+							"if (UVIN && UVIN.length > 0)\r",
+							"{\r",
+							"    postman.setNextRequest(\"https://playgroundvwtestapp.azurewebsites.net/vehicle\");\r",
+							"}\r",
+							"else\r",
+							"{\r",
+							"    postman.setNextRequest(null);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"vin\":\"{{CUVIN}}\",\r\n  \"name\": \"CapGVIN\",\r\n  \"status\": \"Sold\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://playgroundvwtestapp.azurewebsites.net/vehicle",
+					"protocol": "https",
+					"host": [
+						"playgroundvwtestapp",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"vehicle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search_VIN",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let GVIN=pm.collectionVariables.get(\"GVIN\");\r",
+							"if (!GVIN || GVIN.length ==0)\r",
+							"{\r",
+							" GVIN=[\"Capgeminitest0001\", \"Capgeminitest0002\", \"Capgeminitest0003\"];\r",
+							"}\r",
+							"var currentVIN = GVIN.shift();\r",
+							"pm.collectionVariables.set(\"CVIN\", currentVIN);\r",
+							"pm.collectionVariables.set(\"GVIN\", GVIN);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const VIN=pm.collectionVariables.get(\"GVIN\");\r",
+							"if (GVIN && GVIN.length > 0)\r",
+							"{\r",
+							"    postman.setNextRequest(\"https://playgroundvwtestapp.azurewebsites.net/vehicle/{{CVIN}}\");\r",
+							"}\r",
+							"else\r",
+							"{\r",
+							"    postman.setNextRequest(null);\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://playgroundvwtestapp.azurewebsites.net/vehicle/{{CVIN}}",
+					"protocol": "https",
+					"host": [
+						"playgroundvwtestapp",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"vehicle",
+						"{{CVIN}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Error_Code_500",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"vin\": {{VIN}},\r\n  \"name\": \"CapGVIN\",\r\n  \"status\": \"Available\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://playgroundvwtestapp.azurewebsites.net/vehicle",
+					"protocol": "https",
+					"host": [
+						"playgroundvwtestapp",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"vehicle"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "VIN",
+			"value": ""
+		},
+		{
+			"key": "CVIN",
+			"value": ""
+		},
+		{
+			"key": "GVIN",
+			"value": ""
+		},
+		{
+			"key": "CrVIN",
+			"value": ""
+		},
+		{
+			"key": "CUVIN",
+			"value": ""
+		},
+		{
+			"key": "UVIN",
+			"value": ""
+		}
+	]
+}
