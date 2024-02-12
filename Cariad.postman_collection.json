@@ -1,0 +1,496 @@
+{
+	"info": {
+		"_postman_id": "50d4403e-ce4a-4392-988e-98b997dc49b4",
+		"name": "Cariad",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9440113"
+	},
+	"item": [
+		{
+			"name": "Create_Vin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var VIN = pm.environment.get(\"VIN\")\r",
+							"VIN = [CAPGEMINI00000001,\r",
+							"CAPGEMINI00000002,\r",
+							"CAPGEMINI00000003,\r",
+							"CAPGEMINI00000004,\r",
+							"CAPGEMINI00000005,\r",
+							"CAPGEMINI00000006,\r",
+							"CAPGEMINI00000007,\r",
+							"CAPGEMINI00000008,\r",
+							"CAPGEMINI00000009,\r",
+							"CAPGEMINI00000010,\r",
+							"CAPGEMINI00000011,\r",
+							"CAPGEMINI00000012,\r",
+							"CAPGEMINI00000013,\r",
+							"CAPGEMINI00000014,\r",
+							"CAPGEMINI00000015,\r",
+							"CAPGEMINI00000016,\r",
+							"CAPGEMINI00000017,\r",
+							"CAPGEMINI00000018,\r",
+							"CAPGEMINI00000019,\r",
+							"CAPGEMINI00000020,\r",
+							"CAPGEMINI00000021,\r",
+							"CAPGEMINI00000022,\r",
+							"CAPGEMINI00000023,\r",
+							"CAPGEMINI00000024,\r",
+							"CAPGEMINI00000025,\r",
+							"CAPGEMINI00000026,\r",
+							"CAPGEMINI00000027,\r",
+							"CAPGEMINI00000028,\r",
+							"CAPGEMINI00000029,\r",
+							"CAPGEMINI00000030,\r",
+							"CAPGEMINI00000031,\r",
+							"CAPGEMINI00000032,\r",
+							"CAPGEMINI00000033,\r",
+							"CAPGEMINI00000034,\r",
+							"CAPGEMINI00000035,\r",
+							"CAPGEMINI00000036,\r",
+							"CAPGEMINI00000037,\r",
+							"CAPGEMINI00000038,\r",
+							"CAPGEMINI00000039,\r",
+							"CAPGEMINI00000040,\r",
+							"CAPGEMINI00000041,\r",
+							"CAPGEMINI00000042,\r",
+							"CAPGEMINI00000043,\r",
+							"CAPGEMINI00000044,\r",
+							"CAPGEMINI00000045,\r",
+							"CAPGEMINI00000046,\r",
+							"CAPGEMINI00000047,\r",
+							"CAPGEMINI00000048,\r",
+							"CAPGEMINI00000049,\r",
+							"CAPGEMINI00000050,\r",
+							"CAPGEMINI00000051,\r",
+							"CAPGEMINI00000052,\r",
+							"CAPGEMINI00000053,\r",
+							"CAPGEMINI00000054,\r",
+							"CAPGEMINI00000055,\r",
+							"CAPGEMINI00000056,\r",
+							"CAPGEMINI00000057,\r",
+							"CAPGEMINI00000058,\r",
+							"CAPGEMINI00000059,\r",
+							"CAPGEMINI00000060,\r",
+							"CAPGEMINI00000061,\r",
+							"CAPGEMINI00000062,\r",
+							"CAPGEMINI00000063,\r",
+							"CAPGEMINI00000064,\r",
+							"CAPGEMINI00000065,\r",
+							"CAPGEMINI00000066,\r",
+							"CAPGEMINI00000067,\r",
+							"CAPGEMINI00000068,\r",
+							"CAPGEMINI00000069,\r",
+							"CAPGEMINI00000070,\r",
+							"CAPGEMINI00000071,\r",
+							"CAPGEMINI00000072,\r",
+							"CAPGEMINI00000073,\r",
+							"CAPGEMINI00000074,\r",
+							"CAPGEMINI00000075,\r",
+							"CAPGEMINI00000076,\r",
+							"CAPGEMINI00000077,\r",
+							"CAPGEMINI00000078,\r",
+							"CAPGEMINI00000079,\r",
+							"CAPGEMINI00000080,\r",
+							"CAPGEMINI00000081,\r",
+							"CAPGEMINI00000082,\r",
+							"CAPGEMINI00000083,\r",
+							"CAPGEMINI00000084,\r",
+							"CAPGEMINI00000085,\r",
+							"CAPGEMINI00000086,\r",
+							"CAPGEMINI00000087,\r",
+							"CAPGEMINI00000088,\r",
+							"CAPGEMINI00000089,\r",
+							"CAPGEMINI00000090,\r",
+							"CAPGEMINI00000091,\r",
+							"CAPGEMINI00000092,\r",
+							"CAPGEMINI00000093,\r",
+							"CAPGEMINI00000094,\r",
+							"CAPGEMINI00000095,\r",
+							"CAPGEMINI00000096,\r",
+							"CAPGEMINI00000097,\r",
+							"CAPGEMINI00000098,\r",
+							"CAPGEMINI00000099,\r",
+							"CAPGEMINI00000100]\r",
+							"\r",
+							"var currentVin = VIN.shift();\r",
+							"pm.environent.set(\"VIN\",currentVin);\r",
+							"pm.environment.set(\"currentVin\",VIN)"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"vin\":{{VIN}},\r\n  \"name\": \"CapGVIN\",\r\n  \"status\": \"Available\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://playgroundvwtestapp.azurewebsites.net/vehicle",
+					"protocol": "https",
+					"host": [
+						"playgroundvwtestapp",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"vehicle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update_Vin",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var VIN = pm.environment.get(\"VIN\")\r",
+							"VIN = [CAPGEMINI00000001,\r",
+							"CAPGEMINI00000002,\r",
+							"CAPGEMINI00000003,\r",
+							"CAPGEMINI00000004,\r",
+							"CAPGEMINI00000005,\r",
+							"CAPGEMINI00000006,\r",
+							"CAPGEMINI00000007,\r",
+							"CAPGEMINI00000008,\r",
+							"CAPGEMINI00000009,\r",
+							"CAPGEMINI00000010,\r",
+							"CAPGEMINI00000011,\r",
+							"CAPGEMINI00000012,\r",
+							"CAPGEMINI00000013,\r",
+							"CAPGEMINI00000014,\r",
+							"CAPGEMINI00000015,\r",
+							"CAPGEMINI00000016,\r",
+							"CAPGEMINI00000017,\r",
+							"CAPGEMINI00000018,\r",
+							"CAPGEMINI00000019,\r",
+							"CAPGEMINI00000020,\r",
+							"CAPGEMINI00000021,\r",
+							"CAPGEMINI00000022,\r",
+							"CAPGEMINI00000023,\r",
+							"CAPGEMINI00000024,\r",
+							"CAPGEMINI00000025,\r",
+							"CAPGEMINI00000026,\r",
+							"CAPGEMINI00000027,\r",
+							"CAPGEMINI00000028,\r",
+							"CAPGEMINI00000029,\r",
+							"CAPGEMINI00000030,\r",
+							"CAPGEMINI00000031,\r",
+							"CAPGEMINI00000032,\r",
+							"CAPGEMINI00000033,\r",
+							"CAPGEMINI00000034,\r",
+							"CAPGEMINI00000035,\r",
+							"CAPGEMINI00000036,\r",
+							"CAPGEMINI00000037,\r",
+							"CAPGEMINI00000038,\r",
+							"CAPGEMINI00000039,\r",
+							"CAPGEMINI00000040,\r",
+							"CAPGEMINI00000041,\r",
+							"CAPGEMINI00000042,\r",
+							"CAPGEMINI00000043,\r",
+							"CAPGEMINI00000044,\r",
+							"CAPGEMINI00000045,\r",
+							"CAPGEMINI00000046,\r",
+							"CAPGEMINI00000047,\r",
+							"CAPGEMINI00000048,\r",
+							"CAPGEMINI00000049,\r",
+							"CAPGEMINI00000050,\r",
+							"CAPGEMINI00000051,\r",
+							"CAPGEMINI00000052,\r",
+							"CAPGEMINI00000053,\r",
+							"CAPGEMINI00000054,\r",
+							"CAPGEMINI00000055,\r",
+							"CAPGEMINI00000056,\r",
+							"CAPGEMINI00000057,\r",
+							"CAPGEMINI00000058,\r",
+							"CAPGEMINI00000059,\r",
+							"CAPGEMINI00000060,\r",
+							"CAPGEMINI00000061,\r",
+							"CAPGEMINI00000062,\r",
+							"CAPGEMINI00000063,\r",
+							"CAPGEMINI00000064,\r",
+							"CAPGEMINI00000065,\r",
+							"CAPGEMINI00000066,\r",
+							"CAPGEMINI00000067,\r",
+							"CAPGEMINI00000068,\r",
+							"CAPGEMINI00000069,\r",
+							"CAPGEMINI00000070,\r",
+							"CAPGEMINI00000071,\r",
+							"CAPGEMINI00000072,\r",
+							"CAPGEMINI00000073,\r",
+							"CAPGEMINI00000074,\r",
+							"CAPGEMINI00000075,\r",
+							"CAPGEMINI00000076,\r",
+							"CAPGEMINI00000077,\r",
+							"CAPGEMINI00000078,\r",
+							"CAPGEMINI00000079,\r",
+							"CAPGEMINI00000080,\r",
+							"CAPGEMINI00000081,\r",
+							"CAPGEMINI00000082,\r",
+							"CAPGEMINI00000083,\r",
+							"CAPGEMINI00000084,\r",
+							"CAPGEMINI00000085,\r",
+							"CAPGEMINI00000086,\r",
+							"CAPGEMINI00000087,\r",
+							"CAPGEMINI00000088,\r",
+							"CAPGEMINI00000089,\r",
+							"CAPGEMINI00000090,\r",
+							"CAPGEMINI00000091,\r",
+							"CAPGEMINI00000092,\r",
+							"CAPGEMINI00000093,\r",
+							"CAPGEMINI00000094,\r",
+							"CAPGEMINI00000095,\r",
+							"CAPGEMINI00000096,\r",
+							"CAPGEMINI00000097,\r",
+							"CAPGEMINI00000098,\r",
+							"CAPGEMINI00000099,\r",
+							"CAPGEMINI00000100]\r",
+							"\r",
+							"var currentVin = VIN.shift();\r",
+							"pm.environent.set(\"VIN\",currentVin);\r",
+							"pm.environment.set(\"currentVin\",VIN)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"vin\": {{VIN}},\r\n  \"name\": \"CapGVIN\",\r\n  \"status\": \"Sold\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://playgroundvwtestapp.azurewebsites.net/vehicle",
+					"protocol": "https",
+					"host": [
+						"playgroundvwtestapp",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"vehicle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search_VIN",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var VIN = pm.environment.get(\"VIN\")\r",
+							"VIN = [CAPGEMINI00000001,\r",
+							"CAPGEMINI00000002,\r",
+							"CAPGEMINI00000003,\r",
+							"CAPGEMINI00000004,\r",
+							"CAPGEMINI00000005,\r",
+							"CAPGEMINI00000006,\r",
+							"CAPGEMINI00000007,\r",
+							"CAPGEMINI00000008,\r",
+							"CAPGEMINI00000009,\r",
+							"CAPGEMINI00000010,\r",
+							"CAPGEMINI00000011,\r",
+							"CAPGEMINI00000012,\r",
+							"CAPGEMINI00000013,\r",
+							"CAPGEMINI00000014,\r",
+							"CAPGEMINI00000015,\r",
+							"CAPGEMINI00000016,\r",
+							"CAPGEMINI00000017,\r",
+							"CAPGEMINI00000018,\r",
+							"CAPGEMINI00000019,\r",
+							"CAPGEMINI00000020,\r",
+							"CAPGEMINI00000021,\r",
+							"CAPGEMINI00000022,\r",
+							"CAPGEMINI00000023,\r",
+							"CAPGEMINI00000024,\r",
+							"CAPGEMINI00000025,\r",
+							"CAPGEMINI00000026,\r",
+							"CAPGEMINI00000027,\r",
+							"CAPGEMINI00000028,\r",
+							"CAPGEMINI00000029,\r",
+							"CAPGEMINI00000030,\r",
+							"CAPGEMINI00000031,\r",
+							"CAPGEMINI00000032,\r",
+							"CAPGEMINI00000033,\r",
+							"CAPGEMINI00000034,\r",
+							"CAPGEMINI00000035,\r",
+							"CAPGEMINI00000036,\r",
+							"CAPGEMINI00000037,\r",
+							"CAPGEMINI00000038,\r",
+							"CAPGEMINI00000039,\r",
+							"CAPGEMINI00000040,\r",
+							"CAPGEMINI00000041,\r",
+							"CAPGEMINI00000042,\r",
+							"CAPGEMINI00000043,\r",
+							"CAPGEMINI00000044,\r",
+							"CAPGEMINI00000045,\r",
+							"CAPGEMINI00000046,\r",
+							"CAPGEMINI00000047,\r",
+							"CAPGEMINI00000048,\r",
+							"CAPGEMINI00000049,\r",
+							"CAPGEMINI00000050,\r",
+							"CAPGEMINI00000051,\r",
+							"CAPGEMINI00000052,\r",
+							"CAPGEMINI00000053,\r",
+							"CAPGEMINI00000054,\r",
+							"CAPGEMINI00000055,\r",
+							"CAPGEMINI00000056,\r",
+							"CAPGEMINI00000057,\r",
+							"CAPGEMINI00000058,\r",
+							"CAPGEMINI00000059,\r",
+							"CAPGEMINI00000060,\r",
+							"CAPGEMINI00000061,\r",
+							"CAPGEMINI00000062,\r",
+							"CAPGEMINI00000063,\r",
+							"CAPGEMINI00000064,\r",
+							"CAPGEMINI00000065,\r",
+							"CAPGEMINI00000066,\r",
+							"CAPGEMINI00000067,\r",
+							"CAPGEMINI00000068,\r",
+							"CAPGEMINI00000069,\r",
+							"CAPGEMINI00000070,\r",
+							"CAPGEMINI00000071,\r",
+							"CAPGEMINI00000072,\r",
+							"CAPGEMINI00000073,\r",
+							"CAPGEMINI00000074,\r",
+							"CAPGEMINI00000075,\r",
+							"CAPGEMINI00000076,\r",
+							"CAPGEMINI00000077,\r",
+							"CAPGEMINI00000078,\r",
+							"CAPGEMINI00000079,\r",
+							"CAPGEMINI00000080,\r",
+							"CAPGEMINI00000081,\r",
+							"CAPGEMINI00000082,\r",
+							"CAPGEMINI00000083,\r",
+							"CAPGEMINI00000084,\r",
+							"CAPGEMINI00000085,\r",
+							"CAPGEMINI00000086,\r",
+							"CAPGEMINI00000087,\r",
+							"CAPGEMINI00000088,\r",
+							"CAPGEMINI00000089,\r",
+							"CAPGEMINI00000090,\r",
+							"CAPGEMINI00000091,\r",
+							"CAPGEMINI00000092,\r",
+							"CAPGEMINI00000093,\r",
+							"CAPGEMINI00000094,\r",
+							"CAPGEMINI00000095,\r",
+							"CAPGEMINI00000096,\r",
+							"CAPGEMINI00000097,\r",
+							"CAPGEMINI00000098,\r",
+							"CAPGEMINI00000099,\r",
+							"CAPGEMINI00000100]\r",
+							"\r",
+							"var currentVin = VIN.shift();\r",
+							"pm.environent.set(\"VIN\",currentVin);\r",
+							"pm.environment.set(\"currentVin\",VIN)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://playgroundvwtestapp.azurewebsites.net/vehicle/",
+					"protocol": "https",
+					"host": [
+						"playgroundvwtestapp",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"vehicle",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Error_Code_500",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"vin\": {{VIN}},\r\n  \"name\": \"CapGVIN\",\r\n  \"status\": \"Available\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://playgroundvwtestapp.azurewebsites.net/vehicle",
+					"protocol": "https",
+					"host": [
+						"playgroundvwtestapp",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"vehicle"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
